@@ -1,0 +1,19 @@
+{
+  "name": "self-bot",
+  "description": "self-bot para discord",
+  "version": "1.0.0",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "discord.js": "11.6.4",
+    "dotenv": "^16.0.1"
+  },
+  "scripts": {
+    "start:ts": "tsc --watch",
+    "start:js": "nodemon dist/App.js"
+  },
+  "devDependencies": {
+    "@types/node": "^18.6.2",
+    "nodemon": "^2.0.19",
+    "typescript": "^4.7.4"
+  }
+}
