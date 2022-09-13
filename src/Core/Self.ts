@@ -1,7 +1,7 @@
 import { Client, Collection } from 'discord.js';
-import IEvent from "../Interfaces/IEvent";
-import dotenv = require('dotenv');
-import path = require('path');
+import IEvent from '../Interfaces/IEvent';
+import dotenv from 'dotenv';
+import path from 'path';
 import {readdirSync} from "fs";
 import {EventEmitter} from "events";
 
@@ -10,7 +10,7 @@ dotenv.config({
 });
 
 //Classe principal do self-bot
-class Self extends Client {
+export default class Self extends Client {
     //Instância da Client do Discord.js
     private instanceClient: Client = new Client();
 
@@ -44,15 +44,15 @@ class Self extends Client {
     private loadEvents = async () => {
         const eventsPath = path.join(__dirname, '..', 'Events');
 
-        readdirSync(eventsPath).forEach(file => {
-            if (!file.endsWith('.js')) return;
+        for (const file of readdirSync(eventsPath)) {
+            if (!file.endsWith('.js')) continue;
 
-            const event = require(`${eventsPath}/${file}`);
+            const { event } = await import(`${eventsPath}/${file}`);
 
             this.setEvents(event);
 
             this.verifyExecuteEvent(event);
-        });
+        }
     }
 
     /**
@@ -65,5 +65,3 @@ class Self extends Client {
         await this.loadEvents();
     }
 }
-
-export = Self;

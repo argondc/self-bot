@@ -1,8 +1,8 @@
 import IEvent from '../Interfaces/IEvent';
 import { Client } from 'discord.js';
-const colors = require('colors');
+import colors from 'colors';
 
-const ready: IEvent = {
+export const event: IEvent = {
     name: 'ready',
     once: true,
     execute(client: Client) {
@@ -20,5 +20,3 @@ const ready: IEvent = {
         `));
     }
 }
-
-export = ready;

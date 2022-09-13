@@ -1,7 +1,7 @@
 import IEvent from '../Interfaces/IEvent';
 import {Client, Message} from 'discord.js';
 
-const message: IEvent = {
+export const event: IEvent = {
     name: 'message',
     execute(client: Client, message: Message) {
         console.log(message.content);
@@ -62,5 +62,3 @@ const message: IEvent = {
         }
     }
 }
-
-export = message;
