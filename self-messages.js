@@ -17,7 +17,7 @@ client.on('messageCreate', async message => {
         channel.type !== 'category' &&
         channel.type !== 'news' &&
         channel.type !== 'store' &&
-        message.content.includes('!argon')) {
+    message.content.includes('!argon')) {
         try {
             channel.messages.fetch().then(async messages => {
                 const deleteMessagesWithInterval = async () => {
@@ -49,6 +49,15 @@ client.on('messageCreate', async message => {
         } catch (e) {
             console.log(`Problema ao encontrar as mensagens da dm, erro: ${e}`);
         }
+    }
+
+    if(channel.type !== 'voice' &&
+        channel.type !== 'category' &&
+        channel.type !== 'news' &&
+        channel.type !== 'store' &&
+        message.content.includes('!parar')) {
+        console.log('Self-bot encerrado através do comando !parar');
+        process.exit();
     }
 });
 
