@@ -8,6 +8,7 @@
    * Limpeza de mensagens na DM
      * Dentro da pasta do projeto, utilize o comando `npm run messages`, sua conta será conectada no self-bot.
        Após a conexão vá até a DM qual deseja limpar e digite `!argon`.
+     * Para encerrar o processo de limpeza caso for necessário, utilize o comando `!parar` na dm.
 
 
    * Limpeza de amigos
