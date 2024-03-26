@@ -6,6 +6,6 @@
   },
   "scripts": {
     "messages": "node self-messages.js",
-    "friends": "node self-messages.js"
+    "friends": "node self-friends.js"
   }
 }
